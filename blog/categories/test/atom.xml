@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: test | Hi. I'm Scott Zhu]]></title>
+  <link href="http://zhuhuihuihui.github.io/blog/categories/test/atom.xml" rel="self"/>
+  <link href="http://zhuhuihuihui.github.io/"/>
+  <updated>2014-01-25T01:59:52+08:00</updated>
+  <id>http://zhuhuihuihui.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Hello Again]]></title>
+    <link href="http://zhuhuihuihui.github.io/blog/2014/01/24/hello-again/"/>
+    <updated>2014-01-24T23:23:06+08:00</updated>
+    <id>http://zhuhuihuihui.github.io/blog/2014/01/24/hello-again</id>
+    <content type="html"><![CDATA[<h1>hello, how are you guy?</h1>
+
+<h2>first time to be here</h2>
+]]></content>
+  </entry>
+  
+</feed>
