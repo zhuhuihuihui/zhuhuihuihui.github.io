@@ -4,7 +4,7 @@
   <title><![CDATA[Hi. I'm Scott Zhu]]></title>
   <link href="http://zhuhuihuihui.github.io/atom.xml" rel="self"/>
   <link href="http://zhuhuihuihui.github.io/"/>
-  <updated>2014-01-25T01:59:52+08:00</updated>
+  <updated>2014-01-26T16:16:13+08:00</updated>
   <id>http://zhuhuihuihui.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -26,28 +26,10 @@
   
   <entry>
     <title type="html"><![CDATA[Blog with Octopress]]></title>
-    <link href="http://zhuhuihuihui.github.io/blog/2014/01/23/blog-with-octopress/"/>
-    <updated>2014-01-23T01:07:31+08:00</updated>
-    <id>http://zhuhuihuihui.github.io/blog/2014/01/23/blog-with-octopress</id>
+    <link href="http://zhuhuihuihui.github.io/blog/2013/01/23/blog-with-octopress/"/>
+    <updated>2013-01-23T01:07:31+08:00</updated>
+    <id>http://zhuhuihuihui.github.io/blog/2013/01/23/blog-with-octopress</id>
     <content type="html"><![CDATA[
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Test]]></title>
-    <link href="http://zhuhuihuihui.github.io/blog/2014/01/23/test/"/>
-    <updated>2014-01-23T00:00:00+08:00</updated>
-    <id>http://zhuhuihuihui.github.io/blog/2014/01/23/test</id>
-    <content type="html"><![CDATA[<h1>Hello World</h1>
-
-<hr />
-
-<p>layout: post
-title: &ldquo;test&rdquo;
-date: 2014-01-23 00:26:09 +0800
-comments: true</p>
-
-<h2>categories: </h2>
 ]]></content>
   </entry>
   
