@@ -4,7 +4,7 @@
   <title><![CDATA[Hi. I'm Scott Zhu]]></title>
   <link href="http://zhuhuihuihui.github.io/atom.xml" rel="self"/>
   <link href="http://zhuhuihuihui.github.io/"/>
-  <updated>2014-02-09T00:15:10+08:00</updated>
+  <updated>2014-02-09T00:21:52+08:00</updated>
   <id>http://zhuhuihuihui.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How do Chinese people get a boy/girl friend]]></title>
+    <link href="http://zhuhuihuihui.github.io/blog/2014/02/09/how-does-chinese-people-get-a-boy-slash-girl-friend/"/>
+    <updated>2014-02-09T00:17:53+08:00</updated>
+    <id>http://zhuhuihuihui.github.io/blog/2014/02/09/how-does-chinese-people-get-a-boy-slash-girl-friend</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Hello Again]]></title>
