@@ -3,11 +3,19 @@
 # ----------------------- #
 
 url: http://zhuhuihuihui.github.io
-title: Scott Zhu
-subtitle: A iOS & Android Developer
+title: Hi. I'm Scott Zhu
+subtitle: iOS & Android Developer. Geek. Dreamer.
 author: Your Name
 simple_search: http://google.com/search
 description:
+
+navigation:
+- text: Home
+  url: /index.html
+- text: Archives
+  url: /blog/archives/index.html
+- text: About Me
+  url: /about-me.html
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -63,13 +71,13 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 # ----------------------- #
 
 # Github repositories
-github_user:
-github_repo_count: 0
+github_user: zhuhuihuihui
+github_repo_count: 5
 github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:
+twitter_user: zhujianhui
 twitter_tweet_button: true
 
 # Google +1
@@ -90,11 +98,17 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+disqus_short_name: zhuhuihuihui
+disqus_show_comment_count: true
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-47454587-1
 
 # Facebook Like
-facebook_like: false
+facebook_like: true
+
+# Linked In
+linkedin_user: zhuhuihuihui
+
+
+
