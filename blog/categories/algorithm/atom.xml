@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Algorithm | Hi. I'm Scott Zhu]]></title>
+  <link href="http://zhuhuihuihui.github.io/blog/categories/algorithm/atom.xml" rel="self"/>
+  <link href="http://zhuhuihuihui.github.io/"/>
+  <updated>2014-02-19T01:13:44+08:00</updated>
+  <id>http://zhuhuihuihui.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Length of Last Word]]></title>
+    <link href="http://zhuhuihuihui.github.io/blog/2014/02/19/length-of-last-word/"/>
+    <updated>2014-02-19T00:43:09+08:00</updated>
+    <id>http://zhuhuihuihui.github.io/blog/2014/02/19/length-of-last-word</id>
+    <content type="html"><![CDATA[<h2>Description</h2>
+
+<p>Given a string s consists of upper/lower-case alphabets and empty space characters <code>' '</code>, return the length of last word in the string.</p>
+
+<p>If the last word does not exist, return 0.</p>
+
+<p>Note: A word is defined as a character sequence consists of non-space characters only.</p>
+
+<p>For example,
+Given s = <code>"Hello World"</code>,</p>
+
+<p>return <code>5</code>.</p>
+
+<hr />
+
+<h2>Tips:</h2>
+
+<ul>
+<li>Need confirm does one character count a word, in this case <strong>YES</strong></li>
+<li>Start from the end of the string, <code>count++</code> until you meet a <code>' '</code></li>
+<li><code>"word "</code> and <code>"word   "</code></li>
+<li><code>" "</code></li>
+</ul>
+
+
+<hr />
+
+<h2>My Solution</h2>
+
+<p>```
+class Solution {
+public:</p>
+
+<pre><code>int lengthOfLastWord(const char *s) 
+{
+    if(!s) return 0;
+    int length = strlen(s);
+    int count = 0;
+    for(int i = length - 1; i &gt;= 0; i-- )
+    {
+        if(s[i] == ' ' &amp;&amp; count &gt;= 1) return count;
+        if(s[i] != ' ') count++;
+    }
+    return count;
+}
+</code></pre>
+
+<p>};
+```</p>
+]]></content>
+  </entry>
+  
+</feed>
