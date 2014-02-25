@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | Hi. I'm Scott Zhu]]></title>
   <link href="http://zhuhuihuihui.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://zhuhuihuihui.github.io/"/>
-  <updated>2014-02-25T23:44:08+08:00</updated>
+  <updated>2014-02-26T00:14:38+08:00</updated>
   <id>http://zhuhuihuihui.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -18,7 +18,7 @@
     <link href="http://zhuhuihuihui.github.io/blog/2014/02/25/how-to-use-nscoding/"/>
     <updated>2014-02-25T00:09:04+08:00</updated>
     <id>http://zhuhuihuihui.github.io/blog/2014/02/25/how-to-use-nscoding</id>
-    <content type="html"><![CDATA[<p>Let say you want to archive or save a object called <code>City</code>. The <code>City</code> class is declared as below:
+    <content type="html"><![CDATA[<p>Let say you want to archive or save a object called <code>City</code>. The <code>City.h</code> is declared as below:
 ```objectivec</p>
 
 <pre><code>@interface City : NSObject
@@ -29,6 +29,46 @@
 @property (nonatomic, strong) NSString *note;
 
 @end
+</code></pre>
+
+<p>```</p>
+
+<p>The first thing you need to do is to make your class confirm to <code>NSCoding</code> protocol. This is simply telling the system,</p>
+
+<blockquote><p>&ldquo;Ok, i&rsquo;m gonna use NSCoding to help archive and unarchive this class.&rdquo;</p></blockquote>
+
+<p>Next, you need to add two methods to your <code>City.h</code>, which will actually help you doing the archive and unarchive works.
+```objectivec</p>
+
+<pre><code>- (id)initWithCoder:(NSCoder *)aDecoder;
+
+- (void)encodeWithCoder:(NSCoder *)aCoder;
+</code></pre>
+
+<p><code>
+You will need to implement these two methods by yourself, but you will never call these two method manually. We will explain it later. Add implementation of these two methods to `City.m`,
+</code>objectivec</p>
+
+<pre><code>- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.name forKey:@"name"];
+    [aCoder encodeObject:self.state forKey:@"state"];
+    [aCoder encodeObject:[NSNumber numberWithInteger:self.population] forKey:@"population"];
+    [aCoder encodeObject:self.note forKey:@"note"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self)
+    {
+        self.name = [aDecoder decodeObjectForKey:@"name"];
+        self.state = [aDecoder decodeObjectForKey:@"state"];
+        self.population = [[aDecoder decodeObjectForKey:@"population"] integerValue];
+        self.note = [aDecoder decodeObjectForKey:@"note"];
+    }
+    return self;
+}
 </code></pre>
 
 <p>```</p>
