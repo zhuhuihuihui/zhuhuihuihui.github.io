@@ -4,7 +4,7 @@
   <title><![CDATA[Hi. I'm Scott Zhu]]></title>
   <link href="http://zhuhuihuihui.github.io/atom.xml" rel="self"/>
   <link href="http://zhuhuihuihui.github.io/"/>
-  <updated>2014-04-06T12:36:37+08:00</updated>
+  <updated>2014-06-10T00:04:05+08:00</updated>
   <id>http://zhuhuihuihui.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Heading to the United States]]></title>
+    <link href="http://zhuhuihuihui.github.io/blog/2014/04/07/heading-to-the-united-states/"/>
+    <updated>2014-04-07T23:41:40+08:00</updated>
+    <id>http://zhuhuihuihui.github.io/blog/2014/04/07/heading-to-the-united-states</id>
+    <content type="html"><![CDATA[<p>It took my such damn long time to make this final decision. I should have being in the US if i could made the decision earlier. It&rsquo;s been really tough for me in the past 8 months. A lot things happened to me, well frankly speaking, actually that&rsquo;s just one thing. My girlfriend left me and went to US. My life got totally lost after we broke up. I couldn&rsquo;t focus on my work or whatever i should do really. I can&rsquo;t even find the meaning to stay in this country anymore. I don&rsquo;t know what to do, feeling like helpless, lost in the middle of this huge country. I lose initiative to do anything.</p>
+
+<p>I have waste a lot of time. I know i need to move on, i just can hardly find a way. I&rsquo;ve tried everything to get out from the deeply lose of last relationship, but always turns out to be failed. I just can not control my mind.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to use NSCoding]]></title>
