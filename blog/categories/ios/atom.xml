@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | Hi. I'm Scott Zhu]]></title>
   <link href="http://zhuhuihuihui.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://zhuhuihuihui.github.io/"/>
-  <updated>2014-07-13T23:39:46+08:00</updated>
+  <updated>2014-07-22T22:58:12+08:00</updated>
   <id>http://zhuhuihuihui.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -18,7 +18,7 @@
     <link href="http://zhuhuihuihui.github.io/blog/2014/02/25/how-to-use-nscoding/"/>
     <updated>2014-02-25T00:09:04+08:00</updated>
     <id>http://zhuhuihuihui.github.io/blog/2014/02/25/how-to-use-nscoding</id>
-    <content type="html"><![CDATA[<p>Let say you want to archive or save a object called <code>City</code>. The <code>City.h</code> is declared as below:
+    <content type="html"><![CDATA[<p>Let&rsquo;s say you want to archive or save a object called <code>City</code>. The <code>City.h</code> is declared as below:
 ```objectivec</p>
 
 <pre><code>@interface City : NSObject
