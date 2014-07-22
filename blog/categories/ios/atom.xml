@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | Hi. I'm Scott Zhu]]></title>
   <link href="http://zhuhuihuihui.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://zhuhuihuihui.github.io/"/>
-  <updated>2014-07-22T23:04:36+08:00</updated>
+  <updated>2014-07-22T23:08:08+08:00</updated>
   <id>http://zhuhuihuihui.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[iOS7 Auto Layout]]></title>
+    <link href="http://zhuhuihuihui.github.io/blog/2014/07/22/ios7-auto-layout/"/>
+    <updated>2014-07-22T22:33:56+08:00</updated>
+    <id>http://zhuhuihuihui.github.io/blog/2014/07/22/ios7-auto-layout</id>
+    <content type="html"><![CDATA[<p>If you don’t supply any constraints at all, Xcode <strong>automatically</strong> assigns a set of default constraints, known as the automatic constraints. <em>It does this at compile time when your app is built, not at design time.</em></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to use NSCoding]]></title>
