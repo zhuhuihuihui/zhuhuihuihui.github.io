@@ -119,6 +119,12 @@
     <div class="span12">
       <p>If you don’t supply any constraints at all, Xcode <strong>automatically</strong> assigns a set of default constraints, known as the automatic constraints. <em>It does this at compile time when your app is built, not at design time.</em></p>
 
+<p>Xcode only creates automatic constraints if you did not set any constraints of your own. As soon as you add a single constraint, you tell Xcode that you’re now taking responsibility for this view. Xcode will no longer make any automatic constraints and expects you to add any other constraints this view needs.</p>
+
+<p>When it comes to Auto Layout, <strong>orange is bad</strong>. Interface Builder drew two orange boxes: The <code>dashed box</code> displays the view’s frame according to Auto Layout. The <code>solid orange box</code> is the view’s frame according to how you placed it in the scene.</p>
+
+<p><img src="http://cdn2.raywenderlich.com/wp-content/uploads/2013/09/Constraints-button-top-right.png" title="dashed box &amp; solid orange box" alt="" /></p>
+
     </div>
   </div>
 
