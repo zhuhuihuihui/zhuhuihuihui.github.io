@@ -4,7 +4,7 @@
   <title><![CDATA[Hi. I'm Scott Zhu]]></title>
   <link href="http://zhuhuihuihui.github.io/atom.xml" rel="self"/>
   <link href="http://zhuhuihuihui.github.io/"/>
-  <updated>2014-07-23T19:31:35+08:00</updated>
+  <updated>2014-07-25T00:12:53+08:00</updated>
   <id>http://zhuhuihuihui.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[“Manage Xcode project using Github”]]></title>
+    <link href="http://zhuhuihuihui.github.io/blog/2014/07/24/link-a-xcode-project-to-github-repo/"/>
+    <updated>2014-07-24T18:52:58+08:00</updated>
+    <id>http://zhuhuihuihui.github.io/blog/2014/07/24/link-a-xcode-project-to-github-repo</id>
+    <content type="html"><![CDATA[<p>Use <a href="github.com">Github</a> to source control your Xcode project is really cool and rather convenient. Many of you may have tried to upload or link your current Xcode project to Github, but found it’s annoying because you always got some slight problems that stopped you from reaching there.</p>
+
+<p>Here, i’d like to tell you a really simple way to quickly upload  your current project, or a new project, to Github and start to sour control it immediately.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[iOS7 Auto Layout]]></title>

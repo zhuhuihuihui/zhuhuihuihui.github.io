@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: iOS, | Hi. I'm Scott Zhu]]></title>
-  <link href="http://zhuhuihuihui.github.io/blog/categories/ios/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Xcode | Hi. I'm Scott Zhu]]></title>
+  <link href="http://zhuhuihuihui.github.io/blog/categories/xcode/atom.xml" rel="self"/>
   <link href="http://zhuhuihuihui.github.io/"/>
   <updated>2014-07-25T00:12:53+08:00</updated>
   <id>http://zhuhuihuihui.github.io/</id>
