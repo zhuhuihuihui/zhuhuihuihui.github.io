@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Manage Xcode project using Github - Hi. I'm Scott Zhu</title>
+  <title>Understand AssetsLibrary.framework - Hi. I'm Scott Zhu</title>
   <meta name="author" content="Your Name">
 
    
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://zhuhuihuihui.github.io/blog/2014/07/24/link-a-xcode-project-to-github-repo">
+  <link rel="canonical" href="http://zhuhuihuihui.github.io/blog/2014/07/26/understand-assetslibrary-dot-framework">
   <link href="/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
@@ -99,7 +99,7 @@
 
   <header>
   <div class="jumbotron">
-    Manage Xcode Project Using Github
+    Understand AssetsLibrary.framework
 	<h5>
 
 
@@ -112,14 +112,29 @@
   
 
 
-<i class="icon-calendar-empty"></i> <time datetime="2014-07-24T18:52:58+08:00" pubdate data-updated="true">Jul 24<span>th</span>, 2014</time></h5>
+<i class="icon-calendar-empty"></i> <time datetime="2014-07-26T18:12:35+08:00" pubdate data-updated="true">Jul 26<span>th</span>, 2014</time></h5>
   </div>
 </header>
   <div class="row-fluid">
     <div class="span12">
-      <p>Use <a href="github.com">Github</a> to source control your Xcode project is really cool and rather convenient. Many of you may have tried to upload or link your current Xcode project to Github, but found it’s annoying because you always got some slight problems that stopped you from reaching there.</p>
+      <p>The <code>AssetsLibrary.framework</code>, mainly, allows you to manipulate all objects inside the <strong>Photo.app</strong>. Specifically, you can obtain photos and videos from it, as well as add additional photo or video into it, create groups, search inside the library.</p>
 
-<p>Here, i’d like to tell you a really simple way to quickly upload  your current project, or a new project, to Github and start to source control it immediately.</p>
+<p>It simply has five different classes,</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='objectivec'><span class='line'><span class="err">`</span><span class="n">ALAsset</span>
+</span><span class='line'><span class="n">ALAssetRepresentation</span>
+</span><span class='line'><span class="n">ALAssetsFilter</span>
+</span><span class='line'><span class="n">ALAssetsGroup</span>
+</span><span class='line'><span class="n">ALAssetsLibrary</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>`</p>
 
     </div>
   </div>
@@ -135,14 +150,6 @@
         <p class="meta">
         
         
-
-
-
-  <a href="/blog/categories/xcode/"><span class="badge">Xcode</span></a>
-
-  <a href="/blog/categories/ios/"><span class="badge">iOS</span></a>
-
-
 
 
         </p>
@@ -172,10 +179,8 @@
       <div class="span12">
         <p class="meta">
           
-            <a class="basic-alignment left" href="/blog/2014/07/22/ios7-auto-layout/" title="Previous Post: iOS7 Auto Layout">&laquo; iOS7 Auto Layout</a>
+            <a class="basic-alignment left" href="/blog/2014/07/24/link-a-xcode-project-to-github-repo/" title="Previous Post: Manage Xcode project using Github">&laquo; Manage Xcode project using Github</a>
           
-          
-            <a class="basic-alignment right" href="/blog/2014/07/26/understand-assetslibrary-dot-framework/" title="Next Post: Understand AssetsLibrary.framework">Understand AssetsLibrary.framework &raquo;</a>
           
         </p>
       </div>
@@ -214,8 +219,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://zhuhuihuihui.github.io/blog/2014/07/24/link-a-xcode-project-to-github-repo/';
-        var disqus_url = 'http://zhuhuihuihui.github.io/blog/2014/07/24/link-a-xcode-project-to-github-repo/';
+        var disqus_identifier = 'http://zhuhuihuihui.github.io/blog/2014/07/26/understand-assetslibrary-dot-framework/';
+        var disqus_url = 'http://zhuhuihuihui.github.io/blog/2014/07/26/understand-assetslibrary-dot-framework/';
         var disqus_script = 'embed.js';
       
     (function () {
