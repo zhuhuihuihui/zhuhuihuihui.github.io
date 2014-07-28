@@ -4,7 +4,7 @@
   <title><![CDATA[Hi. I'm Scott Zhu]]></title>
   <link href="http://zhuhuihuihui.github.io/atom.xml" rel="self"/>
   <link href="http://zhuhuihuihui.github.io/"/>
-  <updated>2014-07-26T18:26:45+08:00</updated>
+  <updated>2014-07-29T00:29:34+08:00</updated>
   <id>http://zhuhuihuihui.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -35,7 +35,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>`</p>
+<p>`each of which represent different object in the <strong>Photo.app</strong>, I’ll help you to understand these classes and the relations between them in the following article.</p>
 ]]></content>
   </entry>
   
@@ -47,6 +47,28 @@
     <content type="html"><![CDATA[<p>Use <a href="github.com">Github</a> to source control your Xcode project is really cool and rather convenient. Many of you may have tried to upload or link your current Xcode project to Github, but found it’s annoying because you always got some slight problems that stopped you from reaching there.</p>
 
 <p>Here, i’d like to tell you a really simple way to quickly upload  your current project, or a new project, to Github and start to source control it immediately.</p>
+
+<p>Few things that should be prepared before start:
+1. A Github account
+2. Github app for Mac, <a href="https://mac.github.com">download</a> the latest version.
+3. A Xcode project that you’d like to push onto Github</p>
+
+<p>Okay, now if you’re ready, let’s start.</p>
+
+<h2>Step 1, Create a new repository where you wanna push your project to.</h2>
+
+<p>Here i’ve create a new repo called <strong>MyXcodeProject</strong>
+<img src="https://dl.dropboxusercontent.com/s/wqlezx8mv34t2xn/Create%20Project%20on%20Github.png" alt="" />
+Once it has been successfully created, you shall see your new repo like this
+<img src="https://dl.dropboxusercontent.com/s/8id6wdkl5f877mf/successfully%20created%20repo.png" alt="" /></p>
+
+<h2>Step 2, Open <a href="https://mac.github.com">Github for Mac</a> Client, find and download the project that you just create.</h2>
+
+<p>Open the Client, select <code>File -&gt; New Repository</code>  or simply press <code>command + N</code>, find the project that we just created under  <strong>Clone</strong> tap.
+<img src="https://dl.dropboxusercontent.com/s/ww0rv8k7piqln6h/find%20the%20repo%20just%20create.png" alt="" /></p>
+
+<p>Press the <strong>Clone MyXcodeProject</strong> button, choose whatever directory that you want to put this project, <strong>/Desktop</strong> for example. Once it’s successfully cloned, you shall see something like this.
+<img src="https://dl.dropboxusercontent.com/s/94b5tbqj3yu5qs0/success%20create%20the%20repo.png" alt="" /></p>
 ]]></content>
   </entry>
   
