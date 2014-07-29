@@ -4,7 +4,7 @@
   <title><![CDATA[Hi. I'm Scott Zhu]]></title>
   <link href="http://zhuhuihuihui.github.io/atom.xml" rel="self"/>
   <link href="http://zhuhuihuihui.github.io/"/>
-  <updated>2014-07-29T13:27:28+08:00</updated>
+  <updated>2014-07-29T13:37:10+08:00</updated>
   <id>http://zhuhuihuihui.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -48,10 +48,14 @@
 
 <p>Here, i’d like to tell you a really simple way to quickly upload  your current project, or a new project, to Github and start to source control it immediately.</p>
 
-<p>Few things that should be prepared before start:
-1. A Github account
-2. Github app for Mac, <a href="https://mac.github.com">download</a> the latest version.
-3. A Xcode project that you’d like to push onto Github</p>
+<p>Few things that should be prepared before start:</p>
+
+<ul>
+<li>A Github account</li>
+<li>Github app for Mac, <a href="https://mac.github.com">download</a> the latest version.</li>
+<li>A Xcode project that you’d like to push onto Github</li>
+</ul>
+
 
 <p>Okay, now if you’re ready, let’s start.</p>
 
