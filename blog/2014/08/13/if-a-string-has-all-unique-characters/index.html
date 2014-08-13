@@ -125,9 +125,9 @@
 
 <h2>Tips:</h2>
 
-<p>To address a more suitable solution, we should really confirm the scope of set, where those characters come from. Is it <code>ASCII</code> characters? or simply 26 letters? We probably will have different solution for these cases.</p>
+<p>To address a more suitable solution, we should really confirm the scope of set, where those characters come from. Is it <strong>ASCII</strong> characters? or simply 26 letters? We probably will have different solution for these cases.</p>
 
-<p>Suppose we have a set of <code>ASCII</code> characters. Then we could declare a boolean array of size 256. Each element in this array represents the appearing status of a specific character in the <code>ASCII</code> list. All of the elements are initially set to <code>false</code> which indicate that the character at corresponding position never appeared before, while <code>true</code> indicate that the character has appeared before.</p>
+<p>Suppose we have a set of <strong>ASCII</strong> characters. Then we could declare a boolean array of size 256. Each element in this array represents the appearing status of a specific character in the <strong>ASCII</strong> list. All of the elements are initially set to <code>false</code> which indicate that the character at corresponding position never appeared before, while <code>true</code> indicate that the character has appeared before.</p>
 
 <h2>Pseudo-code</h2>
 
@@ -144,23 +144,21 @@
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="err">`</span><span class="n">declare</span> <span class="n">a</span> <span class="n">boolean</span> <span class="n">array</span> <span class="n">of</span> <span class="n">size</span> <span class="mi">256</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="n">declare</span> <span class="n">a</span> <span class="n">boolean</span> <span class="n">array</span> <span class="n">of</span> <span class="n">size</span> <span class="mi">256</span>
 </span><span class='line'><span class="k">for</span><span class="p">(</span><span class="kt">char</span> <span class="n">n</span> <span class="n">in</span> <span class="n">the</span> <span class="n">string</span><span class="p">)</span>
 </span><span class='line'><span class="p">{</span>
-</span><span class='line'><span class="k">if</span><span class="p">(</span> <span class="n">n</span><span class="err">’</span><span class="n">s</span> <span class="n">corresponding</span> <span class="n">element</span> <span class="n">in</span> <span class="n">boolean</span> <span class="n">array</span> <span class="o">==</span> <span class="kc">true</span><span class="p">)</span>
-</span><span class='line'><span class="c1">//means it already appreared before</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'><span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="k">else</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'><span class="n">set</span> <span class="n">it</span> <span class="n">to</span> <span class="kc">true</span><span class="p">,</span> <span class="n">and</span> <span class="k">continue</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
+</span><span class='line'>  <span class="k">if</span><span class="p">(</span> <span class="n">n</span><span class="err">’</span><span class="n">s</span> <span class="n">corresponding</span> <span class="n">element</span> <span class="n">in</span> <span class="n">boolean</span> <span class="n">array</span> <span class="o">==</span> <span class="kc">true</span><span class="p">)</span>
+</span><span class='line'>  <span class="c1">//means it already appeared before</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="n">set</span> <span class="n">it</span> <span class="n">to</span> <span class="kc">true</span><span class="p">,</span> <span class="n">and</span> <span class="k">continue</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
-<p>`</p>
 
 <h2>My C++ Solution</h2>
 
@@ -178,24 +176,22 @@
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="err">`</span><span class="kt">bool</span> <span class="n">isUnique</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">)</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="kt">bool</span> <span class="n">isUnique</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">)</span>
 </span><span class='line'><span class="p">{</span>
-</span><span class='line'><span class="kt">bool</span> <span class="n">characterPool</span><span class="p">[</span><span class="mi">256</span><span class="p">]();</span>
-</span><span class='line'><span class="n">memset</span><span class="p">(</span><span class="n">characterPool</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">characterPool</span><span class="p">));</span>
-</span><span class='line'><span class="n">size_t</span> <span class="n">len</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
-</span><span class='line'><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span> <span class="err">\</span><span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">s</span><span class="p">[</span><span class="n">n</span><span class="p">]();</span>
-</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="n">characterPool</span><span class="p">[</span><span class="n">index</span><span class="p">]()</span> <span class="o">==</span> <span class="kc">true</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-</span><span class='line'><span class="k">else</span>
-</span><span class='line'><span class="n">characterPool</span><span class="p">[</span><span class="n">index</span><span class="p">]()</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class='line'>    <span class="kt">bool</span> <span class="n">characterPool</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+</span><span class='line'>    <span class="n">memset</span><span class="p">(</span><span class="n">characterPool</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">characterPool</span><span class="p">));</span>
+</span><span class='line'>    <span class="n">size_t</span> <span class="n">len</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
+</span><span class='line'>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">s</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">characterPool</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">==</span> <span class="kc">true</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">else</span>
+</span><span class='line'>            <span class="n">characterPool</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
-<p>`</p>
 
 <h2>My Objective-C Solution</h2>
 
@@ -208,17 +204,17 @@
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="err">`</span><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
 </span><span class='line'><span class="p">{</span>
-</span><span class='line'><span class="n">string</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&quot;ss&quot;</span><span class="p">;</span>
-</span><span class='line'><span class="n">string</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">&quot;abcdefghijklmnopqrstuvwxyzABCD1234567890&quot;</span><span class="p">;</span>
-</span><span class='line'><span class="n">cout</span> <span class="err">\</span><span class="o">&lt;</span><span class="err">\</span><span class="o">&lt;</span> <span class="n">isUnique</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="err">\</span><span class="o">&lt;</span><span class="err">\</span><span class="o">&lt;</span> <span class="s">&quot; &quot;</span> <span class="err">\</span><span class="o">&lt;</span><span class="err">\</span><span class="o">&lt;</span> <span class="n">isUnique</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span> <span class="err">\</span><span class="o">&lt;</span><span class="err">\</span><span class="o">&lt;</span> <span class="n">endl</span><span class="p">;</span>
-</span><span class='line'><span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">string</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&quot;ss&quot;</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">string</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">&quot;abcdefghijklmnopqrstuvwxyzABCD1234567890&quot;</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">cout</span> <span class="err">\</span><span class="o">&lt;</span><span class="err">\</span><span class="o">&lt;</span> <span class="n">isUnique</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="err">\</span><span class="o">&lt;</span><span class="err">\</span><span class="o">&lt;</span> <span class="s">&quot; &quot;</span> <span class="err">\</span><span class="o">&lt;</span><span class="err">\</span><span class="o">&lt;</span> <span class="n">isUnique</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span> <span class="err">\</span><span class="o">&lt;</span><span class="err">\</span><span class="o">&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>`</p>
+
 
     </div>
   </div>

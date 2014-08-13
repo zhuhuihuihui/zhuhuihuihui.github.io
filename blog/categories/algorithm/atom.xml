@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Algorithm | Hi. I'm Scott Zhu]]></title>
   <link href="http://zhuhuihuihui.github.io/blog/categories/algorithm/atom.xml" rel="self"/>
   <link href="http://zhuhuihuihui.github.io/"/>
-  <updated>2014-08-14T00:11:12+08:00</updated>
+  <updated>2014-08-14T00:17:20+08:00</updated>
   <id>http://zhuhuihuihui.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -26,62 +26,69 @@
 
 <h2>Tips:</h2>
 
-<p>To address a more suitable solution, we should really confirm the scope of set, where those characters come from. Is it <code>ASCII</code> characters? or simply 26 letters? We probably will have different solution for these cases.</p>
+<p>To address a more suitable solution, we should really confirm the scope of set, where those characters come from. Is it <strong>ASCII</strong> characters? or simply 26 letters? We probably will have different solution for these cases.</p>
 
-<p>Suppose we have a set of <code>ASCII</code> characters. Then we could declare a boolean array of size 256. Each element in this array represents the appearing status of a specific character in the <code>ASCII</code> list. All of the elements are initially set to <code>false</code> which indicate that the character at corresponding position never appeared before, while <code>true</code> indicate that the character has appeared before.</p>
+<p>Suppose we have a set of <strong>ASCII</strong> characters. Then we could declare a boolean array of size 256. Each element in this array represents the appearing status of a specific character in the <strong>ASCII</strong> list. All of the elements are initially set to <code>false</code> which indicate that the character at corresponding position never appeared before, while <code>true</code> indicate that the character has appeared before.</p>
 
 <h2>Pseudo-code</h2>
 
-<p><code>cpp
-`declare a boolean array of size 256
+<p>```cpp
+declare a boolean array of size 256
 for(char n in the string)
+{</p>
+
+<pre><code>if( n’s corresponding element in boolean array == true)
+//means it already appeared before
 {
-if( n’s corresponding element in boolean array == true)
-//means it already appreared before
-{
-return false;
+    return false;
 }
 else
 {
-set it to true, and continue;
+    set it to true, and continue;
 }
-}
-</code>
-`</p>
+</code></pre>
+
+<p>}
+```</p>
 
 <h2>My C++ Solution</h2>
 
-<p><code>cpp
-`bool isUnique(string s)
-{
-bool characterPool[256]();
+<p>```cpp
+bool isUnique(string s)
+{</p>
+
+<pre><code>bool characterPool[256];
 memset(characterPool, false, sizeof(characterPool));
 size_t len = s.length();
-for (int n = 0; n \&lt; len; n++)
+for (int n = 0; n &lt; len; n++)
 {
-int index = (int)s[n]();
-if (characterPool[index]() == true) return false;
-else
-characterPool[index]() = true;
+    int index = (int)s[n];
+    if (characterPool[index] == true) return false;
+    else
+        characterPool[index] = true;
 }
 return true;
-}
-</code>
-`</p>
+</code></pre>
+
+<p>}
+```</p>
 
 <h2>My Objective-C Solution</h2>
 
 <h2>Test the Solution</h2>
 
-<p><code>``cpp
-</code>int main()
-{
-string s1 = &ldquo;ss&rdquo;;
-string s2 = &ldquo;abcdefghijklmnopqrstuvwxyzABCD1234567890&rdquo;;
-cout &lt;&lt; isUnique(s1) &lt;&lt; &ldquo; &rdquo; &lt;&lt; isUnique(s2) &lt;&lt; endl;
+<p>```cpp
+int main()
+{</p>
+
+<pre><code>string s1 = "ss";
+string s2 = "abcdefghijklmnopqrstuvwxyzABCD1234567890";
+cout \&lt;\&lt; isUnique(s1) \&lt;\&lt; " " \&lt;\&lt; isUnique(s2) \&lt;\&lt; endl;
 return 0;
-}
-````</p>
+</code></pre>
+
+<p>}
+```</p>
 ]]></content>
   </entry>
   
