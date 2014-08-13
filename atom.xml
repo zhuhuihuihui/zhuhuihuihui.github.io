@@ -4,7 +4,7 @@
   <title><![CDATA[Hi. I'm Scott Zhu]]></title>
   <link href="http://zhuhuihuihui.github.io/atom.xml" rel="self"/>
   <link href="http://zhuhuihuihui.github.io/"/>
-  <updated>2014-08-14T00:17:20+08:00</updated>
+  <updated>2014-08-14T00:20:30+08:00</updated>
   <id>http://zhuhuihuihui.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -107,10 +107,10 @@
 <span class='line-number'>7</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
 </span><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="n">string</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&quot;ss&quot;</span><span class="p">;</span>
-</span><span class='line'>  <span class="n">string</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">&quot;abcdefghijklmnopqrstuvwxyzABCD1234567890&quot;</span><span class="p">;</span>
-</span><span class='line'>  <span class="n">cout</span> <span class="err">\</span><span class="o">&lt;</span><span class="err">\</span><span class="o">&lt;</span> <span class="n">isUnique</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="err">\</span><span class="o">&lt;</span><span class="err">\</span><span class="o">&lt;</span> <span class="s">&quot; &quot;</span> <span class="err">\</span><span class="o">&lt;</span><span class="err">\</span><span class="o">&lt;</span> <span class="n">isUnique</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span> <span class="err">\</span><span class="o">&lt;</span><span class="err">\</span><span class="o">&lt;</span> <span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">string</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&quot;ss&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">string</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">&quot;abcdefghijklmnopqrstuvwxyzABCD1234567890&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">isUnique</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">isUnique</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Algorithm | Hi. I'm Scott Zhu]]></title>
   <link href="http://zhuhuihuihui.github.io/blog/categories/algorithm/atom.xml" rel="self"/>
   <link href="http://zhuhuihuihui.github.io/"/>
-  <updated>2014-08-14T00:17:20+08:00</updated>
+  <updated>2014-08-14T00:20:30+08:00</updated>
   <id>http://zhuhuihuihui.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -83,7 +83,7 @@ int main()
 
 <pre><code>string s1 = "ss";
 string s2 = "abcdefghijklmnopqrstuvwxyzABCD1234567890";
-cout \&lt;\&lt; isUnique(s1) \&lt;\&lt; " " \&lt;\&lt; isUnique(s2) \&lt;\&lt; endl;
+cout &lt;&lt; isUnique(s1) &lt;&lt; " " &lt;&lt; isUnique(s2) &lt;&lt; endl;
 return 0;
 </code></pre>
 
