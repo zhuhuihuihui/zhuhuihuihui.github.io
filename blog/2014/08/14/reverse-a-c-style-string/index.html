@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>If a string has all unique characters - Hi. I'm Scott Zhu</title>
+  <title>reverse a C-Style String - Hi. I'm Scott Zhu</title>
   <meta name="author" content="Your Name">
 
    
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://zhuhuihuihui.github.io/blog/2014/08/13/if-a-string-has-all-unique-characters">
+  <link rel="canonical" href="http://zhuhuihuihui.github.io/blog/2014/08/14/reverse-a-c-style-string">
   <link href="/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
@@ -99,7 +99,7 @@
 
   <header>
   <div class="jumbotron">
-    If a String Has All Unique Characters
+    Reverse a C-Style String
 	<h5>
 
 
@@ -112,22 +112,20 @@
   
 
 
-<i class="icon-calendar-empty"></i> <time datetime="2014-08-13T23:31:34+08:00" pubdate data-updated="true">Aug 13<span>th</span>, 2014</time></h5>
+<i class="icon-calendar-empty"></i> <time datetime="2014-08-14T10:25:18+08:00" pubdate data-updated="true">Aug 14<span>th</span>, 2014</time></h5>
   </div>
 </header>
   <div class="row-fluid">
     <div class="span12">
       <h2>Description</h2>
 
-<p>Implement an algorithm to determine if a string has all unique characters. What if you can not use additional data structures?</p>
+<p>Write code to reverse a C-Style String. (C-String means that “abcd” is represented as five characters, including the null character.)</p>
 
 <hr />
 
 <h2>Tips:</h2>
 
-<p>To address a more suitable solution, we should really confirm the scope of set, where those characters come from. Is it <strong>ASCII</strong> characters? or simply 26 letters? We probably will have different solution for these cases.</p>
-
-<p>Suppose we have a set of <strong>ASCII</strong> characters. Then we could declare a boolean array of size 256. Each element in this array represents the appearing status of a specific character in the <strong>ASCII</strong> list. All of the elements are initially set to <code>false</code> which indicate that the character at corresponding position never appeared before, while <code>true</code> indicate that the character has appeared before.</p>
+<p>A C-Style String will always have a null character at the end of the string which you can not see, but it&rsquo;s actually there. So in the case of &ldquo;abcd&rdquo;, <code>strlen()</code> will return <strong>4</strong>, which indicates the length of the string itself, while <code>sizeof()</code> will return <strong>5</strong>, the extra one space is for the <code>\0</code> known as null character.</p>
 
 <h2>Pseudo-code</h2>
 
@@ -135,27 +133,9 @@
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="n">declare</span> <span class="n">a</span> <span class="n">boolean</span> <span class="n">array</span> <span class="n">of</span> <span class="n">size</span> <span class="mi">256</span>
-</span><span class='line'><span class="k">for</span><span class="p">(</span><span class="kt">char</span> <span class="n">n</span> <span class="n">in</span> <span class="n">the</span> <span class="n">string</span><span class="p">)</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="k">for</span><span class="p">(</span><span class="n">from</span> <span class="mi">0</span> <span class="n">to</span> <span class="n">the</span> <span class="n">middle</span> <span class="n">position</span> <span class="n">of</span> <span class="n">the</span> <span class="n">string</span><span class="p">)</span>
 </span><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="k">if</span><span class="p">(</span> <span class="n">n</span><span class="err">’</span><span class="n">s</span> <span class="n">corresponding</span> <span class="n">element</span> <span class="n">in</span> <span class="n">boolean</span> <span class="n">array</span> <span class="o">==</span> <span class="kc">true</span><span class="p">)</span>
-</span><span class='line'>  <span class="c1">//means it already appeared before</span>
-</span><span class='line'>  <span class="p">{</span>
-</span><span class='line'>      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'>  <span class="k">else</span>
-</span><span class='line'>  <span class="p">{</span>
-</span><span class='line'>      <span class="n">set</span> <span class="n">it</span> <span class="n">to</span> <span class="kc">true</span><span class="p">,</span> <span class="n">and</span> <span class="k">continue</span><span class="p">;</span>
-</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">switch</span> <span class="n">the</span> <span class="n">current</span> <span class="n">character</span> <span class="n">with</span> <span class="n">the</span> <span class="n">corresponding</span> <span class="n">character</span> <span class="n">at</span> <span class="n">the</span> <span class="n">other</span> <span class="n">side</span> <span class="n">of</span> <span class="n">the</span> <span class="n">string</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -176,19 +156,21 @@
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="kt">bool</span> <span class="n">isUnique</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">)</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> Time complexity: O(n/2)</span>
+</span><span class='line'><span class="cm"> Space: O(1)</span>
+</span><span class='line'><span class="cm">*/</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">reverse</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">s</span><span class="p">)</span>
 </span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="kt">bool</span> <span class="n">characterPool</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
-</span><span class='line'>    <span class="n">memset</span><span class="p">(</span><span class="n">characterPool</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">characterPool</span><span class="p">));</span>
-</span><span class='line'>    <span class="n">size_t</span> <span class="n">len</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
-</span><span class='line'>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nb">NULL</span> <span class="o">==</span> <span class="n">s</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">size_t</span> <span class="n">len</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">len</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span>
 </span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">s</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">characterPool</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">==</span> <span class="kc">true</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">else</span>
-</span><span class='line'>            <span class="n">characterPool</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class='line'>        <span class="kt">char</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">len</span> <span class="o">-</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+</span><span class='line'>        <span class="n">s</span><span class="p">[</span><span class="n">len</span> <span class="o">-</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+</span><span class='line'>        <span class="n">s</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
 </span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -206,14 +188,12 @@
 <span class='line-number'>7</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
 </span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="n">string</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&quot;ss&quot;</span><span class="p">;</span>
-</span><span class='line'>    <span class="n">string</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">&quot;abcdefghijklmnopqrstuvwxyzABCD1234567890&quot;</span><span class="p">;</span>
-</span><span class='line'>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">isUnique</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">isUnique</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="kt">char</span> <span class="n">s</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;switch the current character with the corresponding character at the other side of the string&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">reverse</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">s</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
 
 
     </div>
@@ -265,10 +245,8 @@
       <div class="span12">
         <p class="meta">
           
-            <a class="basic-alignment left" href="/blog/2014/07/26/understand-assetslibrary-dot-framework/" title="Previous Post: Understand AssetsLibrary.framework">&laquo; Understand AssetsLibrary.framework</a>
+            <a class="basic-alignment left" href="/blog/2014/08/13/if-a-string-has-all-unique-characters/" title="Previous Post: If a string has all unique characters">&laquo; If a string has all unique characters</a>
           
-          
-            <a class="basic-alignment right" href="/blog/2014/08/14/reverse-a-c-style-string/" title="Next Post: reverse a C-Style String">reverse a C-Style String &raquo;</a>
           
         </p>
       </div>
@@ -307,8 +285,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://zhuhuihuihui.github.io/blog/2014/08/13/if-a-string-has-all-unique-characters/';
-        var disqus_url = 'http://zhuhuihuihui.github.io/blog/2014/08/13/if-a-string-has-all-unique-characters/';
+        var disqus_identifier = 'http://zhuhuihuihui.github.io/blog/2014/08/14/reverse-a-c-style-string/';
+        var disqus_url = 'http://zhuhuihuihui.github.io/blog/2014/08/14/reverse-a-c-style-string/';
         var disqus_script = 'embed.js';
       
     (function () {
