@@ -128,7 +128,159 @@
   
 
 
-<i class="icon-calendar-empty"></i> <time datetime="2014-08-20T14:44:27+08:00" pubdate data-updated="true">Aug 20<span>th</span>, 2014</time></h5>
+<i class="icon-calendar-empty"></i> <time datetime="2015-02-14T00:23:59+07:00" pubdate data-updated="true">Feb 14<span>th</span>, 2015</time></h5>
+          <div class="row-fluid">
+          
+          <a href="http://zhuhuihuihui.github.io/blog/2015/02/14/attach-stars-to-the-end-of-a-uilabel/#disqus_thread">Comments </a> <span class="fui-bubble-16"></span>
+          
+          </div>
+          
+          <div class="row-fluid">
+          
+          <a href="/blog/categories/ios/"><span class="badge">iOS</span></a>
+          
+          </div>
+          
+    </div>
+    <div class="span10 post-container">
+      <h1 class="link"><a href="/blog/2015/02/14/attach-stars-to-the-end-of-a-uilabel/">Attach Stars to The End of a UILabel</a></h1>
+      <p>In the past few days, I came across with a problem that when dealing with <code>UILabel</code>, which it&rsquo;s content itself is a <code>NSString</code>. I need to</p>
+
+<ul>
+<li>Attach some images (<em>In my case, some stars</em>) right by the end of the text in the <code>UILabel</code></li>
+<li>When there isn&rsquo;t enough space in the end of the text for displaying the images, it <strong>auto wraps</strong> to the <strong>next line</strong>.  Just like how UILabel deals with words wapping.</li>
+<li>Attach it at whichever place in the text as I want</li>
+</ul>
+
+
+<p>Here is how the effect looks like when it&rsquo;s done.</p>
+
+<ul>
+<li>When there is enough space in the end, <img src="./Screen%20Shot%202558-02-13%20at%204.55.23%20PM.png" alt="Alt text" /></li>
+<li>When there is no enough space in the end, <img src="./Screen%20Shot%202558-02-13%20at%204.57.54%20PM.png" alt="Alt text" /></li>
+</ul>
+
+
+<p>So my way here to tackle this issue, is to use <code>NSTextAttachment</code>. <code>NSTextAttachment</code> takes a <code>UIImage</code> as argument , the <code>NSTextAttachment</code> itself then can be attached to an empty <code>NSAttributedString</code> by calling:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='objectivec'><span class='line'><span class="p">[</span><span class="n">NSAttributedString</span> <span class="nl">attributedStringWithAttachment:</span><span class="n">starViewAsAttachment</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now you got a <code>NSAttributedString</code> with the image you want just like a normal word in it. To insert it anywhere in a text, you just play with it like a normal String.</p>
+
+<p>Here is my complete code, here I only attaching the image to the end of the text. However this technique can be apply to any place inside a text.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='objectivec'><span class='line'><span class="n">NSTextAttachment</span> <span class="o">*</span><span class="n">starViewAsAttachment</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSTextAttachment</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span><span class='line'>    <span class="n">starViewAsAttachment</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span><span class="s">@&quot;Your image&quot;</span><span class="p">];</span>
+</span><span class='line'>    <span class="n">NSAttributedString</span> <span class="o">*</span><span class="n">attachmentString</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSAttributedString</span> <span class="nl">attributedStringWithAttachment:</span><span class="n">starViewAsAttachment</span><span class="p">];</span>
+</span><span class='line'>    <span class="n">NSMutableAttributedString</span> <span class="o">*</span><span class="n">hotelName</span><span class="o">=</span> <span class="p">[[</span><span class="n">NSMutableAttributedString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString:</span> <span class="n">viewModel</span><span class="p">.</span><span class="n">hotelDisplayName</span><span class="p">];</span>
+</span><span class='line'>    <span class="cm">/** </span>
+</span><span class='line'><span class="cm">     * Here I&#39;m adding a space after NSTextAttachment just to make sure that</span>
+</span><span class='line'><span class="cm">     * the NSTextAttachment will auto change to next line like normal text does.</span>
+</span><span class='line'><span class="cm">     * Otherwise the NSTextAttachment does not move to the new line.</span>
+</span><span class='line'><span class="cm">     */</span>
+</span><span class='line'>    <span class="p">[</span><span class="n">hotelName</span> <span class="nl">appendAttributedString:</span> <span class="p">[[</span><span class="n">NSAttributedString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString:</span><span class="s">@&quot; &quot;</span><span class="p">]];</span>
+</span><span class='line'>    <span class="n">self</span><span class="p">.</span><span class="n">myUILabel</span><span class="p">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">hotelName</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>A Little Bit More</h4>
+
+<p>Notice that in my case, Stars are one component but not individual separated elements. That being said, no matter how many stars it has, either 3 stars, 4 stars or 4.5 stars, it&rsquo;s all just one image. The reason that I made it in one image is not that we can&rsquo;t use multiple <code>NSTextAttachment</code> in a text, but if we do, each <code>NSTextAttachment</code> will be treated as different words. Therefor it may results in situation that the stars might be separated into two different lines when the space is not enough. But that&rsquo;s not what we want, we want all stars in the same line, either at the <strong>current line</strong> if there&rsquo;s enough space or <strong>next line</strong> if there&rsquo;s no enough space.</p>
+
+<p>While as we all know, the raw image for it will only include one star, and it&rsquo;s suppose for us to use to build multiple stars. And the following is how I build this component based on a single image. The component itself is a subclass of UIView. And you got to find yourself a way to turn a <code>UIView</code> into a <code>UIImage</code>, it&rsquo;s not hard.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='objectivec'><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">buildViewBasedOnStarNumber</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">NSUInteger</span> <span class="n">starCount</span> <span class="o">=</span> <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">starNumber</span> <span class="n">integerValue</span><span class="p">];</span>
+</span><span class='line'>    <span class="kt">BOOL</span> <span class="n">isHalfStar</span> <span class="o">=</span> <span class="p">([</span><span class="n">self</span><span class="p">.</span><span class="n">starNumber</span> <span class="n">floatValue</span><span class="p">]</span> <span class="o">-</span> <span class="n">starCount</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">YES</span> <span class="o">:</span> <span class="n">NO</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">UIImageView</span> <span class="o">*</span><span class="n">star1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIImageView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithImage:</span><span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span> <span class="s">@&quot;ic_star&quot;</span><span class="p">]];</span>
+</span><span class='line'>    <span class="n">CGFloat</span> <span class="n">starWidth</span> <span class="o">=</span> <span class="n">CGRectGetWidth</span><span class="p">(</span><span class="n">star1</span><span class="p">.</span><span class="n">bounds</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">CGFloat</span> <span class="n">starHeight</span> <span class="o">=</span> <span class="n">CGRectGetHeight</span><span class="p">(</span><span class="n">star1</span><span class="p">.</span><span class="n">bounds</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">[</span><span class="n">self</span> <span class="nl">setFrame:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">starWidth</span> <span class="o">*</span> <span class="p">(</span><span class="n">isHalfStar</span> <span class="o">?</span> <span class="n">starCount</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">:</span> <span class="n">starCount</span><span class="p">),</span> <span class="n">starHeight</span><span class="p">)];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">starCount</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">UIImageView</span> <span class="o">*</span><span class="n">star</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIImageView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithImage:</span><span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span> <span class="s">@&quot;ic_star&quot;</span><span class="p">]];</span>
+</span><span class='line'>        <span class="p">[</span><span class="n">star</span> <span class="nl">setFrame:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="n">starWidth</span> <span class="o">*</span> <span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">starWidth</span><span class="p">,</span> <span class="n">starHeight</span><span class="p">)];</span>
+</span><span class='line'>        <span class="p">[</span><span class="n">self</span> <span class="nl">addSubview:</span><span class="n">star</span><span class="p">];</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="n">isHalfStar</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">UIImageView</span> <span class="o">*</span><span class="n">halfStar</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIImageView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithImage:</span><span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span> <span class="s">@&quot;ic_star_half&quot;</span><span class="p">]];</span>
+</span><span class='line'>        <span class="p">[</span><span class="n">halfStar</span> <span class="nl">setFrame:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="n">starWidth</span> <span class="o">*</span> <span class="n">starCount</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">starWidth</span><span class="p">,</span> <span class="n">starHeight</span><span class="p">)];</span>
+</span><span class='line'>        <span class="p">[</span><span class="n">self</span> <span class="nl">addSubview:</span><span class="n">halfStar</span><span class="p">];</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+      
+      
+    </div>
+  </div>
+
+
+
+    </article>
+    
+    <hr>
+    
+  
+  
+    <article>
+      
+
+  <div class="row-fluid">
+    <div class="span2 post-meta">
+	  <h5 class="date-time">
+
+
+
+
+
+
+
+
+  
+
+
+<i class="icon-calendar-empty"></i> <time datetime="2014-08-20T13:44:27+07:00" pubdate data-updated="true">Aug 20<span>th</span>, 2014</time></h5>
           <div class="row-fluid">
           
           <a href="http://zhuhuihuihui.github.io/blog/2014/08/20/anagrams/#disqus_thread">Comments </a> <span class="fui-bubble-16"></span>
@@ -136,6 +288,8 @@
           </div>
           
           <div class="row-fluid">
+          
+          <a href="/blog/categories/algorithm/"><span class="badge">Algorithm</span></a>
           
           </div>
           
@@ -260,8 +414,6 @@
 
 <h2>My Objective-C Solution 2</h2>
 
-<p>This solution requires an additional fixed size array.</p>
-
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -380,7 +532,7 @@
   
 
 
-<i class="icon-calendar-empty"></i> <time datetime="2014-08-19T10:24:10+08:00" pubdate data-updated="true">Aug 19<span>th</span>, 2014</time></h5>
+<i class="icon-calendar-empty"></i> <time datetime="2014-08-19T09:24:10+07:00" pubdate data-updated="true">Aug 19<span>th</span>, 2014</time></h5>
           <div class="row-fluid">
           
           <a href="http://zhuhuihuihui.github.io/blog/2014/08/19/remove-the-duplicate-characters/#disqus_thread">Comments </a> <span class="fui-bubble-16"></span>
@@ -608,7 +760,7 @@
   
 
 
-<i class="icon-calendar-empty"></i> <time datetime="2014-08-14T10:25:18+08:00" pubdate data-updated="true">Aug 14<span>th</span>, 2014</time></h5>
+<i class="icon-calendar-empty"></i> <time datetime="2014-08-14T09:25:18+07:00" pubdate data-updated="true">Aug 14<span>th</span>, 2014</time></h5>
           <div class="row-fluid">
           
           <a href="http://zhuhuihuihui.github.io/blog/2014/08/14/reverse-a-c-style-string/#disqus_thread">Comments </a> <span class="fui-bubble-16"></span>
@@ -733,7 +885,7 @@
   
 
 
-<i class="icon-calendar-empty"></i> <time datetime="2014-08-13T23:31:34+08:00" pubdate data-updated="true">Aug 13<span>th</span>, 2014</time></h5>
+<i class="icon-calendar-empty"></i> <time datetime="2014-08-13T22:31:34+07:00" pubdate data-updated="true">Aug 13<span>th</span>, 2014</time></h5>
           <div class="row-fluid">
           
           <a href="http://zhuhuihuihui.github.io/blog/2014/08/13/if-a-string-has-all-unique-characters/#disqus_thread">Comments </a> <span class="fui-bubble-16"></span>
@@ -878,7 +1030,7 @@
   
 
 
-<i class="icon-calendar-empty"></i> <time datetime="2014-07-26T18:12:35+08:00" pubdate data-updated="true">Jul 26<span>th</span>, 2014</time></h5>
+<i class="icon-calendar-empty"></i> <time datetime="2014-07-26T17:12:35+07:00" pubdate data-updated="true">Jul 26<span>th</span>, 2014</time></h5>
           <div class="row-fluid">
           
           <a href="http://zhuhuihuihui.github.io/blog/2014/07/26/understand-assetslibrary-dot-framework/#disqus_thread">Comments </a> <span class="fui-bubble-16"></span>
@@ -941,7 +1093,7 @@
   
 
 
-<i class="icon-calendar-empty"></i> <time datetime="2014-07-24T18:52:58+08:00" pubdate data-updated="true">Jul 24<span>th</span>, 2014</time></h5>
+<i class="icon-calendar-empty"></i> <time datetime="2014-07-24T17:52:58+07:00" pubdate data-updated="true">Jul 24<span>th</span>, 2014</time></h5>
           <div class="row-fluid">
           
           <a href="http://zhuhuihuihui.github.io/blog/2014/07/24/link-a-xcode-project-to-github-repo/#disqus_thread">Comments </a> <span class="fui-bubble-16"></span>
@@ -1058,7 +1210,7 @@ In the next page, you’ll be able to select on a repo to check out, or in this 
   
 
 
-<i class="icon-calendar-empty"></i> <time datetime="2014-07-22T22:33:56+08:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2014</time></h5>
+<i class="icon-calendar-empty"></i> <time datetime="2014-07-22T21:33:56+07:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2014</time></h5>
           <div class="row-fluid">
           
           <a href="http://zhuhuihuihui.github.io/blog/2014/07/22/ios7-auto-layout/#disqus_thread">Comments </a> <span class="fui-bubble-16"></span>
@@ -1112,7 +1264,7 @@ In the next page, you’ll be able to select on a repo to check out, or in this 
   
 
 
-<i class="icon-calendar-empty"></i> <time datetime="2014-04-07T23:41:40+08:00" pubdate data-updated="true">Apr 7<span>th</span>, 2014</time></h5>
+<i class="icon-calendar-empty"></i> <time datetime="2014-04-07T22:41:40+07:00" pubdate data-updated="true">Apr 7<span>th</span>, 2014</time></h5>
           <div class="row-fluid">
           
           <a href="http://zhuhuihuihui.github.io/blog/2014/04/07/heading-to-the-united-states/#disqus_thread">Comments </a> <span class="fui-bubble-16"></span>
@@ -1162,10 +1314,10 @@ In the next page, you’ll be able to select on a repo to check out, or in this 
   
 
 
-<i class="icon-calendar-empty"></i> <time datetime="2014-02-25T00:09:04+08:00" pubdate data-updated="true">Feb 25<span>th</span>, 2014</time></h5>
+<i class="icon-calendar-empty"></i> <time datetime="2014-02-24T23:09:04+07:00" pubdate data-updated="true">Feb 24<span>th</span>, 2014</time></h5>
           <div class="row-fluid">
           
-          <a href="http://zhuhuihuihui.github.io/blog/2014/02/25/how-to-use-nscoding/#disqus_thread">Comments </a> <span class="fui-bubble-16"></span>
+          <a href="http://zhuhuihuihui.github.io/blog/2014/02/24/how-to-use-nscoding/#disqus_thread">Comments </a> <span class="fui-bubble-16"></span>
           
           </div>
           
@@ -1177,7 +1329,7 @@ In the next page, you’ll be able to select on a repo to check out, or in this 
           
     </div>
     <div class="span10 post-container">
-      <h1 class="link"><a href="/blog/2014/02/25/how-to-use-nscoding/">How to use NSCoding</a></h1>
+      <h1 class="link"><a href="/blog/2014/02/24/how-to-use-nscoding/">How to use NSCoding</a></h1>
       <p>Let&rsquo;s say you want to archive or save a object called <code>City</code>. The <code>City.h</code> is declared as below:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -1270,114 +1422,6 @@ In the next page, you’ll be able to select on a repo to check out, or in this 
 
     </article>
     
-    <hr>
-    
-  
-  
-    <article>
-      
-
-  <div class="row-fluid">
-    <div class="span2 post-meta">
-	  <h5 class="date-time">
-
-
-
-
-
-
-
-
-  
-
-
-<i class="icon-calendar-empty"></i> <time datetime="2014-02-19T00:43:09+08:00" pubdate data-updated="true">Feb 19<span>th</span>, 2014</time></h5>
-          <div class="row-fluid">
-          
-          <a href="http://zhuhuihuihui.github.io/blog/2014/02/19/length-of-last-word/#disqus_thread">Comments </a> <span class="fui-bubble-16"></span>
-          
-          </div>
-          
-          <div class="row-fluid">
-          
-          <a href="/blog/categories/algorithm/"><span class="badge">Algorithm</span></a>
-          
-          </div>
-          
-    </div>
-    <div class="span10 post-container">
-      <h1 class="link"><a href="/blog/2014/02/19/length-of-last-word/">Length of Last Word</a></h1>
-      <h2>Description</h2>
-
-<p>Given a string s consists of upper/lower-case alphabets and empty space characters <code>' '</code>, return the length of last word in the string.</p>
-
-<p>If the last word does not exist, return 0.</p>
-
-<p>Note: A word is defined as a character sequence consists of non-space characters only.</p>
-
-<p>For example,
-Given s = <code>"Hello World"</code>,</p>
-
-<p>return <code>5</code>.</p>
-
-<hr />
-
-<h2>Tips:</h2>
-
-<ul>
-<li>Need confirm does one character count a word, in this case <strong>YES</strong></li>
-<li>Start from the end of the string, <code>count++</code> until you meet a <code>' '</code></li>
-<li><code>"word "</code> and <code>"word   "</code></li>
-<li><code>" "</code></li>
-</ul>
-
-
-<hr />
-
-<h2>My Solution</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-</span><span class='line'><span class="k">public</span><span class="o">:</span>
-</span><span class='line'>    <span class="kt">int</span> <span class="n">lengthOfLastWord</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">s</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'>        <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-</span><span class='line'>        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span> <span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39; &#39;</span> <span class="o">&amp;&amp;</span> <span class="n">count</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
-</span><span class='line'>            <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">&#39; &#39;</span><span class="p">)</span> <span class="n">count</span><span class="o">++</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">};</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-      
-      
-    </div>
-  </div>
-
-
-
-    </article>
-    
   
   <div class="pagination">
     
@@ -1394,7 +1438,7 @@ Given s = <code>"Hello World"</code>,</p>
       <div class="row-fluid">
         <footer class="footer-page" role="contentinfo">
           <p>
-  Copyright &copy; 2014 - Your Name -
+  Copyright &copy; 2015 - Your Name -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span> - Theme by <a href="http://alexgaribay.com">Alex Garibay</a>
     ><p><a href="https://www.upyun.com/index.html" target="_blank"><img src="http://lisiyun.qiniudn.com/90x45.png"></a></p>
 </p>

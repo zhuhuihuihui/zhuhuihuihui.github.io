@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Xcode | Hi. I'm Scott Zhu]]></title>
   <link href="http://zhuhuihuihui.github.io/blog/categories/xcode/atom.xml" rel="self"/>
   <link href="http://zhuhuihuihui.github.io/"/>
-  <updated>2014-08-21T11:22:54+08:00</updated>
+  <updated>2015-02-14T00:26:50+07:00</updated>
   <id>http://zhuhuihuihui.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Manage Xcode project using Github]]></title>
     <link href="http://zhuhuihuihui.github.io/blog/2014/07/24/link-a-xcode-project-to-github-repo/"/>
-    <updated>2014-07-24T18:52:58+08:00</updated>
+    <updated>2014-07-24T17:52:58+07:00</updated>
     <id>http://zhuhuihuihui.github.io/blog/2014/07/24/link-a-xcode-project-to-github-repo</id>
     <content type="html"><![CDATA[<p>Use <a href="github.com">Github</a> to source control your Xcode project is really cool and rather convenient. Many of you may have tried to upload or link your current Xcode project to Github, but found it’s annoying because you always got some slight problems that stopped you from reaching there.</p>
 
