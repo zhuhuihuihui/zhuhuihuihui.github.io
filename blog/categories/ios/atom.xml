@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | Hi. I'm Scott Zhu]]></title>
   <link href="http://zhuhuihuihui.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://zhuhuihuihui.github.io/"/>
-  <updated>2015-02-14T00:26:50+07:00</updated>
+  <updated>2015-02-14T00:42:59+07:00</updated>
   <id>http://zhuhuihuihui.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -30,8 +30,8 @@
 <p>Here is how the effect looks like when it&rsquo;s done.</p>
 
 <ul>
-<li>When there is enough space in the end, <img src="./Screen%20Shot%202558-02-13%20at%204.55.23%20PM.png" alt="Alt text" /></li>
-<li>When there is no enough space in the end, <img src="./Screen%20Shot%202558-02-13%20at%204.57.54%20PM.png" alt="Alt text" /></li>
+<li>When there is enough space in the end, <img src="https://dl.dropboxusercontent.com/s/z1ia03z30sb2dzf/enough%20space.png?dl=0" alt="enter image description here" /></li>
+<li>When there is no enough space in the end, <img src="https://dl.dropboxusercontent.com/s/8kv5kp7hspo5k0y/no%20enough%20space.png?dl=0" alt="enter image description here" /></li>
 </ul>
 
 
