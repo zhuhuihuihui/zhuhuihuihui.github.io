@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | Hi. I'm Scott Zhu]]></title>
   <link href="http://zhuhuihuihui.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://zhuhuihuihui.github.io/"/>
-  <updated>2015-02-14T00:42:59+07:00</updated>
+  <updated>2015-03-01T12:41:50+07:00</updated>
   <id>http://zhuhuihuihui.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,6 +12,57 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Layout margin comes with iOS8]]></title>
+    <link href="http://zhuhuihuihui.github.io/blog/2015/03/01/layout-margin-comes-with-ios8/"/>
+    <updated>2015-03-01T12:40:30+07:00</updated>
+    <id>http://zhuhuihuihui.github.io/blog/2015/03/01/layout-margin-comes-with-ios8</id>
+    <content type="html"><![CDATA[<blockquote><p>Setting your constraints relative to margin in a xib file or storyboard <strong>DOES NOT</strong> make your app crash on iOS7, and it <strong>DOES NOT</strong> make a UI difference on your iOS7 device neither, as long as you don&rsquo;t touch the <code>UIView.layoutMargins</code> and <code>UIView.preservesSuperviewLayoutMargins</code> properties in your code.</p></blockquote>
+
+<h3>What is Margins in iOS8</h3>
+
+<p>Layout margins represent padding around the <strong>interior</strong> of a <code>UIView</code> that the layout system can use when laying out subviews &ndash; to ensure that a gap is left between the edge of a view and a subview. In this respect it is very much like the padding property associated with blocks in CSS.</p>
+
+<p><img src="https://dl.dropboxusercontent.com/s/8y3tavoeoritz19/Screen%20Shot%202558-02-23%20at%204.04.17%20PM.png?dl=0" alt="enter image description here" /></p>
+
+<p>By default, a <code>UIView</code> has layout margins of 8 points on each side, and this can not be changed in Interface Builder, but by setting the <code>UIView.layoutMargins</code> property in the code which is only available on iOS8. I think iOS7 has its way to detect if you&rsquo;ve set your constraints relative to margins or not, and it simply gives the constraints that related to margins extra 8 points space. However you can not change it because there&rsquo;s no such property in iOS7.</p>
+
+<blockquote><p>You can get IB to display the margins with <strong>Editor > Canvas > Show Layout Rectangles:</strong>
+<img src="https://dl.dropboxusercontent.com/s/yahgyf9jnumbovl/show_layout_rectangles.png?dl=0" alt="enter image description here" /></p></blockquote>
+
+<p>Margins itself doesn&rsquo;t affect the contents of your view at all. Every <code>UIView</code> come with its margins by default, it&rsquo;s still there even if you don&rsquo;t use it, not affecting anything. It only comes into use when you&rsquo;re setting up a constraint that is related to margins.  It&rsquo;s only used to help you layout your view and subview.</p>
+
+<h3>How to use Margins</h3>
+
+<p>The only way to get margins involved in IB is to check the <strong>Relative to margin</strong> item while setting up your constraints. This is another way of declaring <em>Use my margins instead of my edges while laying out me.</em></p>
+
+<p><img src="https://dl.dropboxusercontent.com/s/jea4s3m8zey4q6l/Screen%20Shot%202558-02-23%20at%204.57.25%20PM.png?dl=0" alt="enter image description here" /></p>
+
+<p>Let&rsquo;s take a look at four different ways of setting up a leading constraint between a view and its subview. In this case of the constraint, the first item is subview&rsquo;s leading and the second item is superview&rsquo;s leading. While the leading is just a concept here, but mark and unmark the <strong>Relative to margin</strong>  of each item, you can actually select the left edge or left margin as your leading here to use as your leading to layout your views.</p>
+
+<ol>
+<li>First item(uncheck), second item(check). In this case, we&rsquo;re declaring that subview&rsquo;s left edge should align to superview&rsquo;s left margin(as what is shown in the image).<img src="https://dl.dropboxusercontent.com/s/r1bnsky2mahq9mw/Screen%20Shot%202558-02-23%20at%205.13.32%20PM.png?dl=0" alt="enter image description here" /></li>
+<li>First item(uncheck), second item(uncheck), both using edge not margin. In this case, we&rsquo;re declaring that subview&rsquo;s left edge should align to superview&rsquo;s left edge. <img src="https://dl.dropboxusercontent.com/s/ncj55zl5mz78r4z/Screen%20Shot%202558-02-23%20at%205.18.30%20PM.png?dl=0" alt="enter image description here" /></li>
+<li>First item(check), second item(uncheck). In this case, we&rsquo;re declaring that subview&rsquo;s left margin should align to superview&rsquo;s left edge. This kind of layout actually has made the subview overlap the superview.<img src="https://dl.dropboxusercontent.com/s/cc6a8gaxnz18cbu/Screen%20Shot%202558-02-23%20at%205.23.36%20PM.png?dl=0" alt="enter image description here" /></li>
+<li>First item(check), second item(check).  This actually has a same effect as case 2, since both subview and superview has a same default margin. We&rsquo;re declaring that subview&rsquo;s left margin should align to superview&rsquo;s left margin. <img src="https://dl.dropboxusercontent.com/s/ncj55zl5mz78r4z/Screen%20Shot%202558-02-23%20at%205.18.30%20PM.png?dl=0" alt="enter image description here" /></li>
+</ol>
+
+
+<h3>What is good with Margins</h3>
+
+<p>This new feature comes with iOS8 doesn&rsquo;t have a big impact on our way of developing UI if we&rsquo;re not using the margins. But using it correctly can facilitates out development a bit in the case if we have many subviews displayed in a superview, and all the subviews share a same leading, top,&hellip; space to the superview. Because in this case, if we set all constraints with a fixed spacing, once there comes a change on the spacing we have to update the constraints one by one. However if margins were used, we can just reset the margin of the superview by just single line of code like,</p>
+
+<p><code>
+self.rootView.layoutMargins = UIEdgeInsetsMake(0, 50, 0, 0);
+</code>
+However, this is only available on iOS8.</p>
+
+<p>In the following case, all subviews' left edges are aligned to superview&rsquo;s left margin. Thus, changing superview&rsquo;s left margin can affect all subviews at the same time.</p>
+
+<p><img src="https://dl.dropboxusercontent.com/s/ggmjfujf1vm9by0/Screen%20Shot%202558-02-23%20at%205.47.24%20PM.png?dl=0" alt="enter image description here" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Attach Stars to The End of a UILabel]]></title>
